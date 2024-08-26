@@ -16,7 +16,7 @@ public class ObjectPoolManager : MonoBehaviour
         objectPools = new Dictionary<GameObject, ObjectPool>();
         for (int i = 0; i < objectsToPool.Count; i++) 
         {
-            var newPool = new ObjectPool();
+            var newPool = gameObject.AddComponent<ObjectPool>();
             newPool.objectToPool = objectsToPool[i];
             newPool.amountToPool = 10;
             newPool.GeneratePool();
