@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  lookSpeed: 20
+  lookSpeed: 5
   cameraTransform: {fileID: 3513928946792137552}
   playerControls: {fileID: 1850157082254640201}
   rb: {fileID: 1380274974343688625}
