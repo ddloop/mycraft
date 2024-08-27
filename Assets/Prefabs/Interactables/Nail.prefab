@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6987903211909203288}
   - component: {fileID: 6803554184121530667}
   - component: {fileID: 8761788331723632591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shaft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 6598211461050415814}
   - component: {fileID: 8566337154210545877}
   - component: {fileID: 2747016981523365238}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3457023051842887215}
   - component: {fileID: 664749577389221285}
-  m_Layer: 0
+  - component: {fileID: 4019116226674406132}
+  m_Layer: 6
   m_Name: Nail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +239,7 @@ Transform:
   m_GameObject: {fileID: 5878380205073902847}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.545, y: 0.432, z: -2.411}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -254,7 +255,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5878380205073902847}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -273,3 +274,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4019116226674406132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878380205073902847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32cdf56ac353954a9b1c3d4245361fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

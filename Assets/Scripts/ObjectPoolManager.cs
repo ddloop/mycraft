@@ -5,11 +5,15 @@ using UnityEngine;
 public class ObjectPoolManager : MonoBehaviour
 {
     [SerializeField]
+    private bool initialized = false;
+    public bool Initialized { get { return initialized; } }
+
+    [SerializeField]
     private List<GameObject> objectsToPool;
     [SerializeField]
     private int amountToPool;
 
-    private Dictionary<GameObject,ObjectPool> objectPools;
+    public Dictionary<GameObject,ObjectPool> objectPools;
 
     void Start()
     {
@@ -18,15 +22,11 @@ public class ObjectPoolManager : MonoBehaviour
         {
             var newPool = gameObject.AddComponent<ObjectPool>();
             newPool.objectToPool = objectsToPool[i];
-            newPool.amountToPool = 10;
+            newPool.amountToPool = amountToPool;
             newPool.GeneratePool();
             objectPools.Add(objectsToPool[i], newPool);
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        initialized = true;
     }
 }
