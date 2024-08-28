@@ -40,8 +40,6 @@ public class PlayerController : MonoBehaviour
         playerControls.actions.FindAction("Interact").performed += Interact;
     }
 
-
-
     private void Update()
     {
         if (!ignoreInput)
@@ -93,13 +91,16 @@ public class PlayerController : MonoBehaviour
 
     private void OpenUI(InputAction.CallbackContext context)
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        IgnoreInput = true;
-        UIManager.Instance.OpenUI();
+        Cursor.lockState = Cursor.lockState == CursorLockMode.Confined ? CursorLockMode.Locked : CursorLockMode.Confined;
+        IgnoreInput = !IgnoreInput;
+        UIManager.Instance.ToggleUI();
     }
 
     private void Interact(InputAction.CallbackContext context)
     {
+        if (IgnoreInput)
+            return;
+
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
 
         RaycastHit[] hits = Physics.RaycastAll(ray, 5.0f, layerMask);
@@ -108,6 +109,7 @@ public class PlayerController : MonoBehaviour
         {
             RaycastHit closestHit = FindClosestHit(hits);
             Item item = closestHit.rigidbody.GetComponent<Item>();
+            GameManager.Instance.inventoryManager.AddItem(item.referenceForElement);
             item.Enable(false);
             item.Return();
         }

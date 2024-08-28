@@ -11,6 +11,10 @@ public class UIManager : MonoBehaviour
     private GridLayoutGroup inventoryGrid;
     [SerializeField]
     private GameObject inventoryPanel;
+    [SerializeField]
+    private GameObject itemsPanel;
+    [SerializeField]
+    private GameObject itemReference;
 
     private void Awake()
     {
@@ -28,8 +32,21 @@ public class UIManager : MonoBehaviour
         LayoutRebuilder.MarkLayoutForRebuild(inventoryGrid.GetComponent<RectTransform>());
     }
 
-    public void OpenUI() 
+    public void AddItemInventory(ItemElement item) 
     {
-        inventoryPanel.SetActive(true);
+        var newItem = Instantiate(itemReference,itemsPanel.transform);
+        ItemUI itemUI = newItem.GetComponent<ItemUI>();
+        itemUI.thumbnail.sprite = item.icon;
+        itemUI.itemElement = item;
+    }
+
+    public void RemoveItemInventory(ItemUI item) 
+    {
+        Destroy(item.gameObject);
+    }
+
+    public void ToggleUI() 
+    {
+        inventoryPanel.SetActive(!inventoryPanel.activeInHierarchy);
     }
 }

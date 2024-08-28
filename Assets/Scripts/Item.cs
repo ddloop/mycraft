@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public ItemElement referenceForElement;
+
     private ObjectPool pool;
     public ObjectPool Pool { get { return pool; } set { pool = value; } }
 
