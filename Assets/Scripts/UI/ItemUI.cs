@@ -13,7 +13,8 @@ public class ItemUI : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            
+            if (GameManager.Instance.inventoryManager.AddItemCraftingBuffer(itemElement))
+                UIManager.Instance.AddItemCrafting(itemElement);
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
